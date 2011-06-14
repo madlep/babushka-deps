@@ -12,7 +12,8 @@ dep 'OSX apps' do
             '1Password.app', 
             'Dropbox.app',
             'Microsoft Office 2011',
-            'Steam.app'
+            'Steam.app',
+            'Growl.installer'
 end
 
 dep 'TextMate.app' do
@@ -118,4 +119,10 @@ end
 
 dep 'Steam.app' do
   source 'http://cdn.store.steampowered.com/public/client/installer/steam.dmg'
+end
+
+dep 'Growl.installer' do
+  source 'http://growl.cachefly.net/Growl-1.2.2.dmg'
+  
+  provides 'growlnotify'
 end
