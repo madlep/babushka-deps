@@ -1,7 +1,9 @@
 dep 'environment' do
   requires  'git-prompt', 
             'ssh-keys',
-            'GIT_EDITOR.envvar'
+            'GIT_EDITOR.envvar',
+            'SVN_EDITOR.envvar',
+            'EDITOR.envvar'
 end
 
 def home
@@ -10,6 +12,10 @@ end
 
 def bash_profile
   File.join(home, ".bash_profile")
+end
+
+def username
+  ENV["USER"]
 end
 
 dep 'git-prompt' do
@@ -42,6 +48,8 @@ dep 'ssh-keys' do
   }
 end
 
-dep 'GIT_EDITOR.envvar' do
-  env_value 'mate -w'
+['GIT_EDITOR.envvar', 'SVN_EDITOR.envvar', 'EDITOR.envvar'].each do |var|
+  dep var do
+    env_value 'mate -w'
+  end
 end
