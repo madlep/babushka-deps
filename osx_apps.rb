@@ -13,7 +13,8 @@ dep 'OSX apps' do
             'Dropbox.app',
             'Microsoft Office 2011',
             'Steam.app',
-            'Growl.installer'
+            'Growl.installer',
+            'Google Chrome.app'
 end
 
 dep 'TextMate.app' do
@@ -125,4 +126,8 @@ dep 'Growl.installer' do
   source 'http://growl.cachefly.net/Growl-1.2.2.dmg'
   
   provides 'growlnotify'
+end
+
+dep 'Google Chrome.app' do
+  source 'http://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg'
 end
