@@ -13,11 +13,30 @@ dep 'usr local owned by current user' do
     failable_shell('id').stdout.match(/gid=\d+\((.+?)\)/)[1]
   end
   
-  done = false
-  met?{done}
+  met?{
+    Dir.glob("/usr/local/**/*").all?{|f| 
+      if f =~ /\*/ # llvm* file gives us grief
+        true
+      else
+        stat = File.stat(f)
+      
+        ok = true
+        ok &= stat.readable?
+        ok &= stat.writable?
+        ok &= stat.executable?
+        ok &= stat.grpowned?
+        ok &= stat.world_readable?
+        ok &= !stat.world_writable?
+      
+        log "need to fix #{f}" unless ok
+        ok
+      end
+    }
+  }
+
   meet{ 
-    shell "chown -R #{current_user}:#{current_user_group} /usr/local", :sudo => true
-    done = true
+    shell "chmod -R 775 /usr/local", :sudo => true
+    shell "chown -R root:#{current_user_group} /usr/local", :sudo => true
   }
 end
 
