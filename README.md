@@ -12,3 +12,4 @@ Todo
 - railscasts textmate theme
 - terminal display setting config
 - set eclipse up for tomcat including debugger
+- growl tunes
