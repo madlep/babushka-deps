@@ -25,8 +25,6 @@ dep 'usr local owned by current user' do
         ok &= stat.writable?
         ok &= stat.executable?
         ok &= stat.grpowned?
-        ok &= stat.world_readable?
-        ok &= !stat.world_writable?
       
         log "need to fix #{f}" unless ok
         ok
