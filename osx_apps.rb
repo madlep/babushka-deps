@@ -14,7 +14,8 @@ dep 'OSX apps' do
             'Microsoft Office 2011',
             'Steam.app',
             'Growl.installer',
-            'Google Chrome.app'
+            'Google Chrome.app',
+            'Wunderlist.app'
 end
 
 dep 'TextMate.app' do
@@ -130,4 +131,8 @@ end
 
 dep 'Google Chrome.app' do
   source 'http://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg'
+end
+
+dep 'Wunderlist.app' do
+  source 'http://www.6wunderkinder.com/downloads/wunderlist-1.2.1-osx.zip'
 end
