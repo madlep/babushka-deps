@@ -2,9 +2,7 @@ dep 'ruby' do
   requires  'rvm',
             'rvm default gems',
             '1.9.2 installed.rvm',
-            '1.8.7 installed.rvm',
-            '1.9.2 default.rvm', 
-            'jruby 1.6.2 installed.rvm'
+            '1.9.2 default.rvm'
 end
 
 meta :rvm do
@@ -17,22 +15,10 @@ meta :rvm do
   }
 end
 
-dep '1.8.7 installed.rvm' do
-  requires 'rvm'
-  met? { rvm('list')['ruby-1.8.7'] }
-  meet { log("rvm install 1.8.7") { rvm 'install 1.8.7'} }
-end
-
 dep '1.9.2 installed.rvm' do
   requires 'rvm'
   met? { rvm('list')['ruby-1.9.2'] }
   meet { log("rvm install 1.9.2") { rvm 'install 1.9.2'} }
-end
-
-dep 'jruby 1.6.2 installed.rvm' do
-  requires 'rvm'
-  met? { rvm('list')['jruby-1.6.2'] }
-  meet { log("rvm install jruby 1.6.2") { rvm 'install jruby 1.6.2'} }  
 end
 
 dep '1.9.2 default.rvm' do
