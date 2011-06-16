@@ -14,3 +14,4 @@ Todo
 - set eclipse up for tomcat including debugger
 - growl tunes
 - install firebug into firefox
+- json firefox plugin
