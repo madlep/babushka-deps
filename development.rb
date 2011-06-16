@@ -4,8 +4,7 @@ dep 'development' do
   requires  'homebrew', 
             'ruby',
             'fonts',
-            'git config',
-            'lponline:lponline'
+            'git config'
 end            
             
 dep 'fonts' do
