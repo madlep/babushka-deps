@@ -6,11 +6,15 @@ end
 
 dep 'usr local owned by current user' do
   def current_user
-    failable_shell('id').stdout.match(/uid=\d+\((.+?)\)/)[1]
+    @current_user ||= failable_shell('id').stdout.match(/uid=\d+\((.+?)\)/)[1]
+  end
+  
+  def current_user_id
+    @current_user_id ||= failable_shell('id').stdout.match(/uid=(\d+)/)[1]
   end
   
   def current_user_group
-    failable_shell('id').stdout.match(/gid=\d+\((.+?)\)/)[1]
+    @current_user_group ||= failable_shell('id').stdout.match(/gid=\d+\((.+?)\)/)[1]
   end
   
   met?{
@@ -19,12 +23,10 @@ dep 'usr local owned by current user' do
         true
       else
         stat = File.stat(f)
-      
-        ok = true
-        ok &= stat.readable?
-        ok &= stat.writable?
-        ok &= stat.executable?
-        ok &= stat.grpowned?
+  
+        ok = true      
+        ok &= stat.readable?        
+        ok &= (stat.uid.to_s == current_user_id.to_s)
       
         log "need to fix #{f}" unless ok
         ok
@@ -33,8 +35,7 @@ dep 'usr local owned by current user' do
   }
 
   meet{ 
-    shell "chmod -R 775 /usr/local", :sudo => true
-    shell "chown -R root:#{current_user_group} /usr/local", :sudo => true
+    shell "chown -R #{current_user}:#{current_user_group} /usr/local", :sudo => true
   }
 end
 
