@@ -29,7 +29,8 @@ git_config_vars = {
   'core.editor'             => 'mate -w',
   'core.whitespace'         => 'tab-in-indent,tabwidth=2',
   'user.email'              => lambda{prompt_for_value 'Git email'},  
-  'user.name'               => lambda{prompt_for_value 'Git username', :default => username}
+  'user.name'               => lambda{prompt_for_value 'Git username', :default => username},
+  'github.user'             => lambda{prompt_for_value 'Github username', :default => username}
 }.each{|var, value|
   dep "#{var}.git_config"  do
     git_value value
