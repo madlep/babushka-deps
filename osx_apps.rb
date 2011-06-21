@@ -40,34 +40,6 @@ dep 'LittleSnitch' do
   }
 end
 
-dep 'firefox' do
-  requires 'Firefox.app', 'firefox blank homepage'
-end
-
-dep 'Firefox.app' do
-  source 'http://download.mozilla.org/?product=firefox-4.0.1&os=osx&lang=en-US'
-end
-
-dep 'firefox blank homepage' do
-  requires 'Firefox.app'
-  
-  def prefs_js_path
-    Dir.glob("#{home}/Library/Application Support/Firefox/Profiles/*.default/prefs.js")[0]
-  end
-  
-  met?{
-    grep 'user_pref("browser.startup.page", 0);', prefs_js_path
-  }
-  
-  meet {
-    ensure_not_running('firefox-bin')
-    cd(File.dirname(prefs_js_path)) do
-      shell '#{sed} -i ''.babushka_bak'' ''/"browser\.startup\.page"/d'' #{File.basename(prefs_js_path)}' # remove the existing homepage setting if present
-      append_to_file 'user_pref("browser.startup.page", 0);', File.basename(prefs_js_path)
-    end
-  }
-end
-
 dep 'Adium.app' do
   source 'http://download.adium.im/Adium_1.4.1.dmg'
 end
