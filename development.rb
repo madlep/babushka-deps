@@ -4,7 +4,8 @@ dep 'development' do
   requires  'homebrew', 
             'ruby',
             'fonts',
-            'git config'
+            'git config',
+            'erlang.managed'
 end            
             
 dep 'fonts' do
@@ -39,4 +40,8 @@ git_config_vars = {
 
 dep 'git config' do
   requires git_config_vars.map{|key, value| "#{key}.git_config"}
+end
+
+dep 'erlang.managed' do
+  provides 'erl'
 end
