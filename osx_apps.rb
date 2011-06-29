@@ -15,7 +15,8 @@ dep 'OSX apps' do
             'Steam.app',
             'Growl.installer',
             'Google Chrome.app',
-            'Wunderlist.app'
+            'Wunderlist.app',
+            'Evernote.app'
 end
 
 dep 'TextMate.app' do
@@ -107,4 +108,8 @@ end
 
 dep 'Wunderlist.app' do
   source 'http://www.6wunderkinder.com/downloads/wunderlist-1.2.1-osx.zip'
+end
+
+dep 'Evernote.app' do
+  source 'http://evernote.s3.amazonaws.com/mac/release/Evernote_154267.dmg'
 end
