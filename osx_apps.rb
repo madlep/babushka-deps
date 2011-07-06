@@ -16,7 +16,8 @@ dep 'OSX apps' do
             'Growl.installer',
             'Google Chrome.app',
             'Wunderlist.app',
-            'Evernote.app'
+            'Evernote.app',
+            'terminal config'
 end
 
 dep 'TextMate.app' do
@@ -112,4 +113,29 @@ end
 
 dep 'Evernote.app' do
   source 'http://evernote.s3.amazonaws.com/mac/release/Evernote_154267.dmg'
+end
+
+dep 'terminal config' do
+  met? {
+    script = <<-AS
+      tell application "Terminal"
+        return name of default settings
+      end tell
+    AS
+    `osascript -e '#{script}'` =~ /madlep/
+  }
+  
+  meet {
+    script = <<-AS
+      tell application "Terminal"
+        open "#{File.join(File.dirname(__FILE__), "data", "madlep.terminal")}"
+        close first window
+        set default settings to settings set "madlep"
+        repeat with w in every window
+          set current settings of w to settings set "madlep"
+        end repeat
+      end tell
+    AS
+    `osascript -e '#{script}'`
+  }
 end
