@@ -3,7 +3,9 @@ dep 'environment' do
             'ssh-keys',
             'GIT_EDITOR.envvar',
             'SVN_EDITOR.envvar',
-            'EDITOR.envvar'
+            'EDITOR.envvar',
+            'bash.managed',
+            'bash-completion.managed'
 end
 
 def home
@@ -52,4 +54,35 @@ end
   dep var do
     env_value 'mate -w'
   end
+end
+
+dep 'bash.managed' do
+  met? {
+    ENV["SHELL"] =~ /\/usr\/local\/bin\/bash/ || @bash_done
+  }
+  
+  after {
+    if `grep "/usr/local/bin/bash" /etc/shells`.empty?
+      append_to_file("/usr/local/bin/bash", "/etc/shells", :sudo => true)
+    end
+    `chsh -s /usr/local/bin/bash`
+    @bash_done = true
+  }
+end
+
+dep 'bash-completion.managed' do
+  met? {
+    File.exists?("/usr/local/etc/bash_completion")
+  } 
+  
+  after {
+    command = <<-EOS
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+  . `brew --prefix`/etc/bash_completion
+fi
+    EOS
+    append_to_file(command, bash_profile)
+    
+    `ln -s "/usr/local/Library/Contributions/brew_bash_completion.sh" "/usr/local/etc/bash_completion.d"`
+  }
 end
