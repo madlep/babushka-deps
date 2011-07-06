@@ -5,7 +5,8 @@ dep 'development' do
             'ruby',
             'fonts',
             'git config',
-            'erlang.managed'
+            'erlang.managed',
+            'rebar.managed'
 end            
             
 dep 'fonts' do
@@ -19,7 +20,7 @@ end
 
 git_config_vars = {
   'alias.br'                => 'branch -a',
-  'alias.co'                => 'commit -v',
+  'alias.co'                => 'checkout',
   'alias.st'                => 'status',
   'apply.ignorewhitespace'  => 'change',
   'color.branch'            => 'auto',
@@ -45,3 +46,5 @@ end
 dep 'erlang.managed' do
   provides 'erl'
 end
+
+dep 'rebar.managed'
