@@ -1,5 +1,5 @@
 dep 'textmate' do
-  requires 'TextMate.app', 'textmate helper', 'AckMate.tmplugin'
+  requires 'TextMate.app', 'textmate helper', 'AckMate.tmplugin', 'erlang.tmbundle'
 end
 
 dep 'textmate helper' do
@@ -14,4 +14,8 @@ end
 
 dep 'AckMate.tmplugin' do  
   source 'http://github.com/downloads/protocool/AckMate/AckMate.1.1.2.zip'
+end
+
+dep 'erlang.tmbundle' do
+  source 'https://github.com/textmate/erlang.tmbundle'
 end
