@@ -17,7 +17,8 @@ dep 'OSX apps' do
             'Google Chrome.app',
             'Wunderlist.app',
             'Evernote.app',
-            'terminal config'
+            'terminal config',
+            'VLC.app'
 end
 
 dep 'TextMate.app' do
@@ -138,4 +139,8 @@ dep 'terminal config' do
     AS
     `osascript -e '#{script}'`
   }
+end
+
+dep 'VLC.app' do
+  source 'http://sourceforge.net/projects/vlc/files/1.1.10.1/macosx/vlc-1.1.10.1-intel64.dmg/download'
 end
