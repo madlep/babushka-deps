@@ -6,7 +6,8 @@ dep 'development' do
             'fonts',
             'git config',
             'erlang.managed',
-            'rebar.managed'
+            'rebar.managed',
+            'redis.managed'
 end            
             
 dep 'fonts' do
@@ -48,3 +49,7 @@ dep 'erlang.managed' do
 end
 
 dep 'rebar.managed'
+
+dep 'redis.managed' do
+  provides ["redis-server", "redis-cli"]
+end
