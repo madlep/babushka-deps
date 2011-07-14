@@ -6,15 +6,15 @@ end
 
 dep 'usr local owned by current user' do
   def current_user
-    @current_user ||= failable_shell('id').stdout.match(/uid=\d+\((.+?)\)/)[1]
+    @current_user ||= raw_shell('id').stdout.match(/uid=\d+\((.+?)\)/)[1]
   end
   
   def current_user_id
-    @current_user_id ||= failable_shell('id').stdout.match(/uid=(\d+)/)[1]
+    @current_user_id ||= raw_shell('id').stdout.match(/uid=(\d+)/)[1]
   end
   
   def current_user_group
-    @current_user_group ||= failable_shell('id').stdout.match(/gid=\d+\((.+?)\)/)[1]
+    @current_user_group ||= raw_shell('id').stdout.match(/gid=\d+\((.+?)\)/)[1]
   end
   
   met?{

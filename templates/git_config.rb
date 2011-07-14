@@ -7,7 +7,7 @@ meta :git_config do
     }
     
     meet {
-      failable_shell "git config --unset-all #{basename}"
+      raw_shell "git config --unset-all #{basename}"
       git_value.each do |value|
         shell "git config --global --add #{basename} '#{value}'"
       end
