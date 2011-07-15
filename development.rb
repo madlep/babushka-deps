@@ -7,7 +7,8 @@ dep 'development' do
             'git config',
             'erlang.managed',
             'rebar.managed',
-            'redis.managed'
+            'redis.managed',
+            "coffee-script.managed"
 end            
             
 dep 'fonts' do
@@ -52,4 +53,8 @@ dep 'rebar.managed'
 
 dep 'redis.managed' do
   provides ["redis-server", "redis-cli"]
+end
+
+dep "coffee-script.managed" do
+  provides "coffee"
 end
