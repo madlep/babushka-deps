@@ -1,6 +1,5 @@
 dep 'utils' do
   requires  'usr local owned by current user',
-            'usr local Cellar exists',
             'wget.managed'
 end
 
@@ -37,11 +36,6 @@ dep 'usr local owned by current user' do
   meet{ 
     shell "chown -R #{current_user}:#{current_user_group} /usr/local", :sudo => true
   }
-end
-
-dep 'usr local Cellar exists' do
-  met?{ File.exists? "/usr/local/Cellar" }
-  meet{ FileUtils.mkdir "/usr/local/Cellar" }
 end
 
 dep 'wget.managed'

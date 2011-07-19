@@ -21,10 +21,6 @@ dep 'OSX apps' do
             'VLC.app'
 end
 
-dep 'TextMate.app' do
-  source 'http://download-b.macromates.com/TextMate_1.5.10.dmg'
-end
-
 dep 'Quicksilver.app' do
   source 'https://github.com/downloads/quicksilver/Quicksilver/Quicksilver-b58-3841.tar.gz'
 end

@@ -9,7 +9,7 @@ meta :firefox_addon do
     requires 'Firefox.app'
     
     met?{
-      File.exists?(addon_path(basename))
+      firefox_profile_path && File.exists?(addon_path(basename))
     }
   
     meet {

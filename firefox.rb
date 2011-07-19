@@ -1,29 +1,9 @@
 dep 'firefox' do
-  requires 'Firefox.app', 'firefox blank homepage', 'firefox addons'
+  requires 'Firefox.app', 'firefox addons'
 end
 
 dep 'Firefox.app' do
-  source 'http://download.mozilla.org/?product=firefox-4.0.1&os=osx&lang=en-US'
-end
-
-dep 'firefox blank homepage' do
-  requires 'Firefox.app'
-  
-  def prefs_js_path
-    File.join(firefox_profile_path, "prefs.js")
-  end
-  
-  met?{
-    grep 'user_pref("browser.startup.page", 0);', prefs_js_path
-  }
-  
-  meet {
-    ensure_not_running('firefox-bin')
-    cd(File.dirname(prefs_js_path)) do
-      shell '#{sed} -i ''.babushka_bak'' ''/"browser\.startup\.page"/d'' #{File.basename(prefs_js_path)}' # remove the existing homepage setting if present
-      append_to_file 'user_pref("browser.startup.page", 0);', File.basename(prefs_js_path)
-    end
-  }
+  source 'http://download.mozilla.org/?product=firefox-5.0.1&os=osx&lang=en-US'
 end
 
 dep 'firefox addons' do
