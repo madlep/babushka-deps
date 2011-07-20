@@ -10,7 +10,7 @@ Todo
 ----
 - bundler aliases (be/ber)
 - railscasts textmate theme
-- terminal display setting config
-- set eclipse up for tomcat including debugger
 - growl tunes
 - json firefox plugin
+- json chrome plugin
+- adblock chrome
