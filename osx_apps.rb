@@ -113,6 +113,8 @@ dep 'Evernote.app' do
 end
 
 dep 'terminal config' do
+  requires 'fonts'
+  
   met? {
     script = <<-AS
       tell application "Terminal"
