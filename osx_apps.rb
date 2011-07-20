@@ -68,10 +68,6 @@ dep 'Eclipse' do
   }
 end
 
-dep '1Password.app' do
-  source 'http://aws.cachefly.net/dist/1P/mac/1Password-3.5.9.zip'
-end
-
 dep 'Dropbox.app' do
   source 'http://cdn.dropbox.com/Dropbox%201.1.35.dmg'
 end
@@ -104,6 +100,12 @@ dep 'Google Chrome.app' do
   source 'http://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg'
 end
 
+dep '1Password.app' do
+  # install browsers first, so plugin gets installed
+  requires 'Google Chrome.app', 'firefox'
+  source 'http://aws.cachefly.net/dist/1P/mac/1Password-3.5.9.zip'
+end
+
 dep 'Wunderlist.app' do
   source 'http://www.6wunderkinder.com/downloads/wunderlist-1.2.1-osx.zip'
 end
@@ -113,6 +115,7 @@ dep 'Evernote.app' do
 end
 
 dep 'terminal config' do
+  # need fonts, or theme setup doesn't use them
   requires 'fonts'
   
   met? {
