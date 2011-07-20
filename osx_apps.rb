@@ -33,7 +33,7 @@ dep 'LittleSnitch' do
   }
   
   meet {
-    Babushka::Resource.extract('http://www.obdev.at/downloads/littlesnitch/LittleSnitch-2.3.6.dmg') do
+    Babushka::Resource.extract('http://www.obdev.at/downloads/LittleSnitch/LittleSnitch-2.4.dmg') do
       shell "open 'Little Snitch Installer.app/' --wait-apps"
     end
   }
