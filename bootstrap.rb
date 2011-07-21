@@ -4,5 +4,5 @@ dep 'madlep' do
             'utils',
             'development',
             'processes',
-            'OSX apps',
+            'OSX apps'
 end
