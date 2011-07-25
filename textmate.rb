@@ -1,5 +1,5 @@
 dep 'textmate' do
-  requires 'TextMate.app', 'textmate helper', 'AckMate.tmplugin', 'erlang.tmbundle', "CoffeeScript.tmbundle"
+  requires 'TextMate.app', 'textmate helper', 'AckMate.tmplugin', 'erlang.tmbundle', "CoffeeScript.tmbundle", "html5.tmb"
 end
 
 dep 'textmate helper' do
@@ -22,4 +22,8 @@ end
 
 dep "CoffeeScript.tmbundle" do
   source "https://github.com/jashkenas/coffee-script-tmbundle"
+end
+
+dep "html5.tmbundle" do
+  source "https://github.com/johnmuhl/html5.tmbundle.git"
 end
