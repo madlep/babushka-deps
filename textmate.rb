@@ -1,5 +1,11 @@
 dep 'textmate' do
-  requires 'TextMate.app', 'textmate helper', 'AckMate.tmplugin', 'erlang.tmbundle', "CoffeeScript.tmbundle", "html5.tmb"
+  requires  'TextMate.app', 
+            'textmate helper', 
+            'AckMate.tmplugin', 
+            'erlang.tmbundle', 
+            "CoffeeScript.tmbundle", 
+            "html5.tmbundle",
+            "RSpec.tmbundle"
 end
 
 dep 'textmate helper' do
@@ -26,4 +32,8 @@ end
 
 dep "html5.tmbundle" do
   source "https://github.com/johnmuhl/html5.tmbundle.git"
+end
+
+dep "RSpec.tmbundle" do
+  source "https://github.com/rspec/rspec-tmbundle.git"
 end
