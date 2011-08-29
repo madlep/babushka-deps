@@ -22,6 +22,8 @@ dep 'OSX apps' do
 end
 
 dep 'Quicksilver.app' do
+  requires 'disable spotlight indexing'
+  
   source 'https://github.com/downloads/quicksilver/Quicksilver/Quicksilver-b58-3841.tar.gz'
 end
 
