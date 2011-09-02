@@ -9,7 +9,8 @@ dep 'development' do
             'erlang.managed',
             'rebar.managed',
             'redis.managed',
-            "coffee-script.managed"
+            "coffee-script.managed",
+            "haskell-platform.managed"
 end            
             
 dep 'fonts' do
@@ -58,4 +59,8 @@ end
 
 dep "coffee-script.managed" do
   provides "coffee"
+end
+
+dep 'haskell-platform.managed' do
+  provides "ghc", "ghci", "cabal"
 end

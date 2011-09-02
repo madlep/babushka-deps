@@ -5,7 +5,8 @@ dep 'textmate' do
             'erlang.tmbundle', 
             "CoffeeScript.tmbundle", 
             "html5.tmbundle",
-            "RSpec.tmbundle"
+            "RSpec.tmbundle",
+            "Haskell.tmbundle"
 end
 
 dep 'textmate helper' do
@@ -36,4 +37,8 @@ end
 
 dep "RSpec.tmbundle" do
   source "https://github.com/rspec/rspec-tmbundle.git"
+end
+
+dep "Haskell.tmbundle" do
+  source "https://github.com/textmate/haskell.tmbundle.git"
 end
