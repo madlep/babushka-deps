@@ -1,4 +1,3 @@
-include Babushka::PromptHelpers
 include Babushka::LogHelpers
 
 dep 'development' do
