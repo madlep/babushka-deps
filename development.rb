@@ -5,7 +5,7 @@ dep 'development' do
   requires  'homebrew', 
             'ruby',
             'fonts',
-            'git config',
+            'git',
             'erlang.managed',
             'rebar.managed',
             'redis.managed',
@@ -21,6 +21,12 @@ dep 'bitstream-vera.font' do
   source 'http://ftp.gnome.org/pub/GNOME/sources/ttf-bitstream-vera/1.10/ttf-bitstream-vera-1.10.tar.gz'
   provides %w{Vera VeraBI VeraBd VeraIt VeraMoBI VeraMoBd VeraMoIt VeraMono VeraSe VeraSeBd}
 end
+
+dep 'git' do
+  requires 'git.managed', 'git config'
+end
+
+dep 'git.managed'
 
 git_config_vars = {
   'alias.br'                => 'branch -a',

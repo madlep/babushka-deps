@@ -1,8 +1,6 @@
 dep 'madlep' do
-  requires  'terminal config', 
-            'environment',  
+  requires  'environment',  
             'utils',
             'development',
-            'processes',
-            'OSX apps'
+            'processes'
 end

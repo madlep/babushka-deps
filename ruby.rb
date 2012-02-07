@@ -1,8 +1,8 @@
 dep 'ruby' do
   requires  'rvm',
             'rvm default gems',
-            '1.9.2 installed.rvm',
-            '1.9.2 default.rvm'
+            '1.9.3 installed.rvm',
+            '1.9.3 default.rvm'
 end
 
 meta :rvm do
@@ -15,16 +15,16 @@ meta :rvm do
   }
 end
 
-dep '1.9.2 installed.rvm' do
+dep '1.9.3 installed.rvm' do
   requires 'rvm'
-  met? { rvm('list')['ruby-1.9.2'] }
-  meet { log("rvm install 1.9.2") { rvm 'install 1.9.2'} }
+  met? { rvm('list')['ruby-1.9.3'] }
+  meet { log("rvm install 1.9.3") { rvm 'install 1.9.3'} }
 end
 
 dep '1.9.2 default.rvm' do
   requires '1.9.2 installed.rvm'
-  met? { login_shell('ruby --version')['ruby 1.9.2'] }
-  meet { rvm('use 1.9.2 --default') }
+  met? { login_shell('ruby --version')['ruby 1.9.3'] }
+  meet { rvm('use 1.9.3 --default') }
 end
 
 dep 'rvm' do
